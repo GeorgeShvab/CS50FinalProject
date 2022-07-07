@@ -1,0 +1,75 @@
+<div class="log-reg">
+  <div class="container">
+    <form action="/registration" method="post" class="log-reg__form">
+      <h1 class="log-reg__title">
+        Реєстрація
+      </h1>
+      <input type="hidden" name="password" />
+      <input type="hidden" name="passwordConfirmation" />
+      <div class="log-reg__form-item">
+        <label for="email-input" class="log-reg__label active">
+          Емейл
+        </label>
+        <input
+          id="email-input"
+          name="email"
+          autocomplete="email"
+          type="text"
+          class="log-reg__input"
+          maxlength="40"
+        />
+      </div>
+      <div class="log-reg__form-item">
+        <label for="name-input" class="log-reg__label active">
+          Ім'я
+        </label>
+        <input
+          id="name-input"
+          name="name"
+          autocomplete="name"
+          type="text"
+          class="log-reg__input"
+          maxlength="40"
+        />
+      </div>
+      <div class="log-reg__form-item">
+        <label for="password-input" class="log-reg__label">
+          Пароль
+        </label>
+        <input
+          id="password-input"
+          autocomplete="new-password"
+          type="password"
+          class="log-reg__input"
+          maxlength="80"
+        />
+      </div>
+      <div class="log-reg__form-item">
+        <label for="password-confirmation-input" class="log-reg__label">
+          Підтвердьте пароль
+        </label>
+        <input
+          id="password-confirmation-input"
+          autocomplete="new-password"
+          type="password"
+          class="log-reg__input"
+          maxlength="80"
+        />
+      </div>
+      {{#if error}}
+        <p class="log-reg__error">
+          {{error}}
+        </p>
+      {{/if}}
+      <button class="log-reg__submit" type="submit">
+        Зареєструватись
+      </button>
+      <p class="log-reg__change-service">
+        Вже маєте аккаунт?
+        <a href="/login">
+          Увійти
+        </a>
+      </p>
+    </form>
+  </div>
+</div>

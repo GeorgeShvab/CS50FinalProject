@@ -44,3 +44,7 @@ const connectToDb = () => {
 }
 
 connectToDb()
+
+hbs.handlebars.registerHelper('scriptLink', function (name) {
+    return './scripts/' + name
+})

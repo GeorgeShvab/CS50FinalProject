@@ -1,0 +1,82 @@
+.log-reg {
+  padding: 100px 0;
+}
+
+.log-reg__form {
+  margin: 0 auto;
+  max-width: 400px;
+  padding: 0 30px;
+  position: relative;
+}
+
+.log-reg__title {
+  font-size: 2.5rem;
+  text-align: center;
+  color: #a193f2;
+  margin-bottom: 35px;
+}
+
+.log-reg__form-item {
+  margin-bottom: 20px;
+}
+.log-reg__form-item:nth-child(7) {
+  margin-bottom: 40px;
+}
+
+.log-reg__input {
+  width: 100%;
+  height: 46px;
+  background-color: #f3f3f3;
+  border-radius: 23px;
+  border: none;
+  outline: none;
+  padding: 0 20px;
+  font-size: 1.6rem;
+  border: 2px solid rgba(161, 147, 242, 0);
+}
+.log-reg__input:focus {
+  border: 2px solid #a193f2;
+}
+
+.log-reg__label {
+  font-size: 1.4rem;
+  color: #b1b1b1;
+  white-space: nowrap;
+  display: block;
+  margin-bottom: 5px;
+  padding-left: 10px;
+}
+
+.log-reg__submit {
+  margin: 0 auto 10px;
+  display: block;
+  width: 200px;
+  font-size: 1.6rem;
+  height: 46px;
+  border-radius: 23px;
+  border: 0;
+  background-color: #e17d9f;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+}
+
+.log-reg__change-service {
+  font-size: 1.4rem;
+  text-align: center;
+}
+.log-reg__change-service a {
+  color: #a193f2;
+}
+
+.log-reg__error {
+  position: absolute;
+  font-size: 1.4rem;
+  color: #fb9a85;
+  bottom: 82px;
+  left: 0;
+  text-align: center;
+  width: 100%;
+}
+
+/*# sourceMappingURL=log-reg.css.map */
