@@ -4,6 +4,8 @@ const db = require('mongoose')
 const router = require('./router')
 const path = require('path')
 const exphbs = require('express-handlebars')
+const cookieParser = require('cookie-parser')
+const authorization = require('./middlewares/authorization')
 
 const PORT = process.env.PORT || config.PORT
 
@@ -18,9 +20,11 @@ app.engine('hbs', hbs.engine)
 app.set('view engine', 'hbs')
 app.set('views', 'views')
 
+app.use(cookieParser())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static(path.join(__dirname, 'public')))
+app.use(authorization)
 app.use(router)
 
 const start = () => {

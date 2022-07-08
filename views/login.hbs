@@ -1,0 +1,49 @@
+<div class="log-reg login">
+  <div class="container">
+    <form action="/login" method="post" class="log-reg__form">
+      <h1 class="log-reg__title">
+        Вхід
+      </h1>
+      <input type="hidden" name="password" />
+      <div class="log-reg__form-item">
+        <label for="email-input" class="log-reg__label active">
+          Емейл
+        </label>
+        <input
+          id="email-input"
+          name="email"
+          autocomplete="email"
+          type="text"
+          class="log-reg__input"
+          maxlength="40"
+        />
+      </div>
+      <div class="log-reg__form-item">
+        <label for="password-input" class="log-reg__label">
+          Пароль
+        </label>
+        <input
+          id="password-input"
+          autocomplete="password"
+          type="password"
+          class="log-reg__input"
+          maxlength="80"
+        />
+      </div>
+      {{#if error}}
+        <p class="log-reg__error">
+          {{error}}
+        </p>
+      {{/if}}
+      <button class="log-reg__submit" type="submit">
+        Увійти
+      </button>
+      <p class="log-reg__change-service">
+        Ще не маєте аккаунт?
+        <a href="/registration">
+          Зареєструватись
+        </a>
+      </p>
+    </form>
+  </div>
+</div>

@@ -6,7 +6,6 @@ const registrationGET = (req, res) => {
 }
 
 const registrationPOST = (req, res) => {
-    console.log(req)
 
     const { name, email, password, passwordConfirmation } = req.body
 
