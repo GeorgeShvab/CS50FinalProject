@@ -4,7 +4,10 @@ const { KEY } = require('../config.json')
 const { findByPasswordAndEmail } = require('../dao/user')
 
 const loginGET = (req, res) => {
-    res.render('login', { scripts: ['login.js', 'md5.min.js'] })
+    res.render('login', {
+        scripts: ['login.js', 'md5.min.js'],
+        authorization: req.user ? true : false,
+    })
 }
 
 const loginPOST = (req, res) => {
@@ -15,6 +18,7 @@ const loginPOST = (req, res) => {
         res.render('login', {
             scripts: ['login.js', 'md5.min.js'],
             error: 'Заповніть всі поля',
+            authorization: req.user ? true : false,
         })
     } else {
         findByPasswordAndEmail(
@@ -25,11 +29,13 @@ const loginPOST = (req, res) => {
                     res.render('login', {
                         scripts: ['login.js', 'md5.min.js'],
                         error: 'Помилка серверу, спробуйте будь ласка пізніше',
+                        authorization: req.user ? true : false,
                     })
                 } else if (!result) {
                     res.render('login', {
                         scripts: ['login.js', 'md5.min.js'],
                         error: 'Неправильний емейл або пароль',
+                        authorization: req.user ? true : false,
                     })
                 } else if (result.passwordHash == password) {
                     let options = {
@@ -50,6 +56,7 @@ const loginPOST = (req, res) => {
                                 res.render('login', {
                                     scripts: ['login.js', 'md5.min.js'],
                                     error: 'Помилка серверу, спробуйте будь ласка пізніше',
+                                    authorization: req.user ? true : false,
                                 })
                             } else {
                                 res.cookie('Authorization', token, options)
@@ -62,6 +69,7 @@ const loginPOST = (req, res) => {
                     res.render('login', {
                         scripts: ['login.js', 'md5.min.js'],
                         error: 'Помилка серверу, спробуйте будь ласка пізніше',
+                        authorization: req.user ? true : false,
                     })
                 }
             }

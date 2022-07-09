@@ -1,6 +1,7 @@
 :root {
   font-family: "M PLUS Rounded 1c", sans-serif;
   font-size: 10px;
+  background-color: #f2f2f2;
 }
 
 * {
@@ -27,8 +28,21 @@ a {
 }
 
 .header {
-  padding: 15px 30px;
+  padding: 15px 0;
   display: flex;
+}
+.header.authorized .account-btn {
+  display: block;
+}
+.header.authorized .account-btn path {
+  transition: 0.25s fill;
+}
+.header.authorized .account-btn:hover path:first-child {
+  fill: #e17d9f;
+}
+.header.authorized .registration-btn,
+.header.authorized .login-btn {
+  display: none;
 }
 
 .header__logo-link {
