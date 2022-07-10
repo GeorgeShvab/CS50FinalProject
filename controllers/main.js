@@ -5,12 +5,14 @@ const index = (req, res) => {
             authorization: req.user ? true : false,
             layout: 'main',
             scripts: [],
+            pageName: 'Головна',
         })
     } else {
         res.render('index', {
             layout: 'main',
             scripts: [],
             authorization: req.user ? true : false,
+            pageName: 'Головна',
         })
     }
 }

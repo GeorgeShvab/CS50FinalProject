@@ -1,0 +1,48 @@
+.results {
+    padding: 100px 0;
+}
+
+.results__test-title {
+    margin-bottom: 40px;
+    font-size: 2rem;
+    color: #424242;
+    text-align: center;
+}
+
+.results__item {
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.results__item-number {
+    font-size: 1.6rem;
+    color: #424242;
+    margin-bottom: 25px;
+}
+
+.results__item-que {
+    color: #424242;
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: #000000;
+}
+
+.results__item-answer {
+    color: #424242;
+    font-size: 1.4rem;
+    margin-bottom: 25px;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+/*
+    {{#each (objEntries this)}}
+            {{#each this}}
+              {{this}}
+            {{/each}}
+          {{/each}}
+*/

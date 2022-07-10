@@ -5,6 +5,7 @@ const newTestGET = (req, res) => {
         res.render('newTest', {
             scripts: ['newTest.js'],
             authorization: req.user ? true : false,
+            pageName: 'Новий тест',
         })
     } else {
         res.redirect('/login')
@@ -13,7 +14,7 @@ const newTestGET = (req, res) => {
 
 const newTestPOST = (req, res) => {
     if (req.user) {
-        const title = req.body.testTitle
+        const title = req.body.testTitle || 'Новий тест'
         const authorId = req.user.id
         let elements = []
 

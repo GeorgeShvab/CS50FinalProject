@@ -1,0 +1,54 @@
+.test {
+  padding: 100px 0;
+}
+
+.test__title {
+  margin-bottom: 60px;
+  color: #424242;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.test__que {
+  margin-bottom: 40px;
+  position: relative;
+  padding: 20px;
+  background: #fbfbfb;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.test__que-title {
+  font-size: 2rem;
+  color: #424242;
+  margin-bottom: 20px;
+}
+
+.test__submit-container {
+  display: flex;
+  justify-content: end;
+}
+
+.test__submit-btn {
+  background-color: #e17d9f;
+  color: #ffffff;
+  font-size: 1.6rem;
+  padding: 5px 20px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.test__que-textarea {
+  min-height: 100px;
+  background: none;
+  padding: 10px;
+  font-size: 1.4rem;
+  border: 1px solid rgba(66, 66, 66, 0.3333333333);
+  outline: none;
+  resize: vertical;
+  width: 100%;
+  line-height: 1.1;
+  overflow: hidden;
+}
+
+/*# sourceMappingURL=test.css.map */

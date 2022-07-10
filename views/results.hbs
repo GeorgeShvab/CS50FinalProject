@@ -1,0 +1,30 @@
+<div class="results">
+  <div class="container">
+    <h1 class="results__test-title">
+      {{title}}
+    </h1>
+    {{#each answers}}
+      <div class="results__item">
+        <h3 class="results__item-number">
+          Відповідь
+          {{addOne @index}}
+        </h3>
+        {{#each (returnAnswers this)}}
+          {{#each (objEntries this)}}
+            {{#each this}}
+              {{#if (isQue this @index)}}
+                <h4 class="results__item-que">
+                  {{this}}
+                </h4>
+              {{else}}
+                <p class="results__item-answer">
+                  {{this}}
+                </p>
+              {{/if}}
+            {{/each}}
+          {{/each}}
+        {{/each}}
+      </div>
+    {{/each}}
+  </div>
+</div>

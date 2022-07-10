@@ -14,6 +14,7 @@ const registrationPOST = (req, res) => {
             error: 'Заповніть всі поля',
             scripts: ['registration.js', 'md5.min.js'],
             authorization: req.user ? true : false,
+            pageName: 'Реєстрація',
         })
     } else if (password != passwordConfirmation) {
         res.status(400)
@@ -21,6 +22,7 @@ const registrationPOST = (req, res) => {
             error: 'Паролі не збігаються',
             scripts: ['registration.js', 'md5.min.js'],
             authorization: req.user ? true : false,
+            pageName: 'Реєстрація',
         })
     } else if (password.length < 6) {
         res.status(400)
@@ -28,6 +30,7 @@ const registrationPOST = (req, res) => {
             error: 'Пароль повинен містити не менше 6 символів',
             scripts: ['registration.js', 'md5.min.js'],
             authorization: req.user ? true : false,
+            pageName: 'Реєстрація',
         })
     } else {
         findUserByEmail(email, (err, result) => {
@@ -37,12 +40,14 @@ const registrationPOST = (req, res) => {
                     error: 'Помилка серверу, будь ласка, спробуйте пізніше',
                     scripts: ['registration.js', 'md5.min.js'],
                     authorization: req.user ? true : false,
+                    pageName: 'Реєстрація',
                 })
             } else if (result) {
                 res.render('registration', {
                     error: 'Користувач з таким емейлом вже існує',
                     scripts: ['registration.js', 'md5.min.js'],
                     authorization: req.user ? true : false,
+                    pageName: 'Реєстрація',
                 })
             } else {
                 registerUser(
@@ -59,6 +64,7 @@ const registrationPOST = (req, res) => {
                                 error: 'Помилка серверу, будь ласка, спробуйте пізніше',
                                 scripts: ['registration.js', 'md5.min.js'],
                                 authorization: req.user ? true : false,
+                                pageName: 'Реєстрація',
                             })
                         } else {
                             res.redirect('/login')

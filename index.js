@@ -50,5 +50,27 @@ const connectToDb = () => {
 connectToDb()
 
 hbs.handlebars.registerHelper('scriptLink', function (name) {
-    return './scripts/' + name
+    return '/scripts/' + name
+})
+
+hbs.handlebars.registerHelper('returnAnswers', (obj) => {
+    return obj.answers
+})
+
+hbs.handlebars.registerHelper('objEntries', (value) => {
+    return Object.entries(value)
+})
+
+hbs.handlebars.registerHelper('console', (value) => {
+    console.log(value)
+})
+
+hbs.handlebars.registerHelper('addOne', (value) => value + 1)
+
+hbs.handlebars.registerHelper('isQue', (value, index) => {
+    if (index == 0 || index % 2 == 0) {
+        return true
+    } else {
+        return false
+    }
 })

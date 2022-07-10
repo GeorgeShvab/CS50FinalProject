@@ -8,6 +8,7 @@ const testSchema = new Schema(
         author_id: ObjectId,
         date: Number,
         questions: Array,
+        answersCount: Number,
     },
     {
         versionKey: false,

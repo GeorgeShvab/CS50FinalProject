@@ -1,0 +1,45 @@
+.account {
+  padding: 100px 0;
+}
+
+.account__avatar {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.account__title {
+  font-size: 2rem;
+  text-align: center;
+  color: #424242;
+  margin-bottom: 30px;
+}
+
+.account__test {
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+}
+
+.account__test-link {
+  margin-bottom: 20px;
+  display: block;
+}
+.account__test-link:last-child {
+  margin-bottom: 0;
+}
+
+.account__test-title,
+.account__test-count {
+  font-size: 1.6rem;
+  color: #424242;
+}
+
+.account__tests-caption {
+  font-size: 1.6rem;
+  color: #424242;
+  margin-bottom: 20px;
+}
+
+/*# sourceMappingURL=account.css.map */

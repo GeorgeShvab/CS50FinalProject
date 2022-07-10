@@ -7,6 +7,7 @@ const loginGET = (req, res) => {
     res.render('login', {
         scripts: ['login.js', 'md5.min.js'],
         authorization: req.user ? true : false,
+        pageName: 'Вхід',
     })
 }
 
@@ -19,6 +20,7 @@ const loginPOST = (req, res) => {
             scripts: ['login.js', 'md5.min.js'],
             error: 'Заповніть всі поля',
             authorization: req.user ? true : false,
+            pageName: 'Вхід',
         })
     } else {
         findByPasswordAndEmail(
@@ -30,12 +32,14 @@ const loginPOST = (req, res) => {
                         scripts: ['login.js', 'md5.min.js'],
                         error: 'Помилка серверу, спробуйте будь ласка пізніше',
                         authorization: req.user ? true : false,
+                        pageName: 'Вхід',
                     })
                 } else if (!result) {
                     res.render('login', {
                         scripts: ['login.js', 'md5.min.js'],
                         error: 'Неправильний емейл або пароль',
                         authorization: req.user ? true : false,
+                        pageName: 'Вхід',
                     })
                 } else if (result.passwordHash == password) {
                     let options = {
@@ -57,6 +61,7 @@ const loginPOST = (req, res) => {
                                     scripts: ['login.js', 'md5.min.js'],
                                     error: 'Помилка серверу, спробуйте будь ласка пізніше',
                                     authorization: req.user ? true : false,
+                                    pageName: 'Вхід',
                                 })
                             } else {
                                 res.cookie('Authorization', token, options)
@@ -70,6 +75,7 @@ const loginPOST = (req, res) => {
                         scripts: ['login.js', 'md5.min.js'],
                         error: 'Помилка серверу, спробуйте будь ласка пізніше',
                         authorization: req.user ? true : false,
+                        pageName: 'Вхід',
                     })
                 }
             }

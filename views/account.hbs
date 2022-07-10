@@ -1,0 +1,40 @@
+<div class="account">
+  <div class="container">
+    <div class="account__avatar">
+      <svg
+        width="180"
+        height="180"
+        viewBox="0 0 180 180"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M90 15C48.5625 15 15 48.5625 15 90C15 131.437 48.5625 165 90 165C131.437 165 165 131.437 165 90C165 48.5625 131.437 15 90 15ZM90 37.5C102.412 37.5 112.5 47.5875 112.5 60C112.5 72.45 102.412 82.5 90 82.5C77.5875 82.5 67.5 72.45 67.5 60C67.5 47.5875 77.5875 37.5 90 37.5ZM90 144C71.2125 144 54.7125 134.4 45 119.85C45.1875 104.962 75.0375 96.75 90 96.75C104.962 96.75 134.775 104.962 135 119.85C125.287 134.4 108.787 144 90 144Z"
+          fill="#A193F2"
+        ></path>
+      </svg>
+    </div>
+    <h1 class="account__title">
+      {{userName}}
+    </h1>
+    <p class="account__tests-caption">
+      Тести які ви створили:
+    </p>
+    <div class="account__tests">
+      {{#each data}}
+        <a href="/test/{{this._id}}/results" class="account__test-link">
+          <div class="account__test">
+            <h3 class="account__test-title">
+              {{this.title}}
+            </h3>
+            <p class="account__test-count">
+              Пройшли
+              {{this.answersCount}}
+              осіб
+            </p>
+          </div>
+        </a>
+      {{/each}}
+    </div>
+  </div>
+</div>
