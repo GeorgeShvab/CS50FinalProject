@@ -45,10 +45,7 @@ const insertAnswer = ({ testId, answers }, done) => {
 
 const updateAnswerCount = async (testId) => {
     try {
-        await Test.updateOne(
-            { _id: testId },
-            { $inc: { answersCount: 1 } }
-        ).then((res) => console.log(res))
+        await Test.updateOne({ _id: testId }, { $inc: { answersCount: 1 } })
     } catch (e) {
         console.log(e)
     }
