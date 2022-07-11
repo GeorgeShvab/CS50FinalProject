@@ -5,6 +5,10 @@
     font-family: 'M PLUS Rounded 1c', sans-serif;
     font-size: 10px;
     background-color: #f2f2f2;
+
+    @media screen and (max-width: 1024px) {
+        font-size: 8px;
+    }
 }
 
 * {
@@ -19,7 +23,7 @@ body {
 .container {
     max-width: 1140px;
     margin: 0 auto;
-    padding: 0 30px;
+    padding: 0 15px;
 }
 
 .flex-container {
@@ -38,12 +42,17 @@ a {
     padding: 15px 0;
     display: flex;
 
+    @media screen and (max-width: 1024px) {
+        justify-content: space-between;
+        padding: 10px 0;
+    }
+
     &.authorized {
         .account-btn,
         .account-leave {
             display: block;
             path {
-                transition: 0.25s fill;
+                transition: 0.25s fill, 0.25s stroke;
             }
 
             &:hover {
@@ -51,6 +60,14 @@ a {
                     &:first-child {
                         fill: $purple;
                     }
+                }
+            }
+        }
+        .account-leave {
+            &:hover {
+                path {
+                    stroke: $purple;
+                    fill: $purple;
                 }
             }
         }
@@ -75,6 +92,42 @@ a {
     display: flex;
     justify-content: space-between;
     width: 100%;
+    transition: 2s height;
+
+    @media screen and (max-width: 1024px) {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        height: 0px;
+        overflow: hidden;
+        display: block;
+        background: #fbfbfb;
+        width: 100vw;
+        z-index: 100;
+
+        &.active {
+            height: fit-content;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+
+            .nav__list {
+                .nav__item {
+                    margin-right: 0;
+                    margin-bottom: 20px;
+                }
+
+                &:first-child {
+                    display: block;
+                    text-align: center;
+                }
+
+                &:last-child {
+                    width: fit-content;
+                    gap: 20px;
+                    margin: 0 auto;
+                }
+            }
+        }
+    }
 }
 .nav__item {
     margin-right: 5rem;
@@ -180,4 +233,49 @@ a {
     text-align: center;
     font-size: 1.5rem;
     color: #424242;
+}
+
+.menu-btn {
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    display: none;
+
+    @media screen and (max-width: 1024px) {
+        display: block;
+    }
+
+    span {
+        display: block;
+        width: 32px;
+        border-radius: 3px;
+        background: $blue;
+        height: 6px;
+        position: relative;
+
+        &::before {
+            position: absolute;
+            content: '';
+            display: block;
+            width: 32px;
+            border-radius: 3px;
+            background: $blue;
+            height: 6px;
+            top: -12px;
+            left: 0;
+        }
+
+        &::after {
+            position: absolute;
+            content: '';
+            display: block;
+            width: 32px;
+            border-radius: 3px;
+            background: $blue;
+            height: 6px;
+            bottom: -12px;
+            left: 0;
+        }
+    }
 }

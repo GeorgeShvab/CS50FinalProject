@@ -45,7 +45,7 @@
   font-size: 1.4rem;
   border: 1px solid rgba(66, 66, 66, 0.3333333333);
   outline: none;
-  resize: vertical;
+  resize: none;
   width: 100%;
   line-height: 1.1;
   overflow: hidden;

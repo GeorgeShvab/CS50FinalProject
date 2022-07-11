@@ -3,6 +3,11 @@
   font-size: 10px;
   background-color: #f2f2f2;
 }
+@media screen and (max-width: 1024px) {
+  :root {
+    font-size: 8px;
+  }
+}
 
 * {
   font-family: inherit;
@@ -16,7 +21,7 @@ body {
 .container {
   max-width: 1140px;
   margin: 0 auto;
-  padding: 0 30px;
+  padding: 0 15px;
 }
 
 .flex-container {
@@ -35,16 +40,26 @@ a {
   padding: 15px 0;
   display: flex;
 }
+@media screen and (max-width: 1024px) {
+  .header {
+    justify-content: space-between;
+    padding: 10px 0;
+  }
+}
 .header.authorized .account-btn,
 .header.authorized .account-leave {
   display: block;
 }
 .header.authorized .account-btn path,
 .header.authorized .account-leave path {
-  transition: 0.25s fill;
+  transition: 0.25s fill, 0.25s stroke;
 }
 .header.authorized .account-btn:hover path:first-child,
 .header.authorized .account-leave:hover path:first-child {
+  fill: #e17d9f;
+}
+.header.authorized .account-leave:hover path {
+  stroke: #e17d9f;
   fill: #e17d9f;
 }
 .header.authorized .registration-btn,
@@ -66,6 +81,37 @@ a {
   display: flex;
   justify-content: space-between;
   width: 100%;
+  transition: 2s height;
+}
+@media screen and (max-width: 1024px) {
+  .nav {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    height: 0px;
+    overflow: hidden;
+    display: block;
+    background: #fbfbfb;
+    width: 100vw;
+    z-index: 100;
+  }
+  .nav.active {
+    height: fit-content;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  }
+  .nav.active .nav__list .nav__item {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+  .nav.active .nav__list:first-child {
+    display: block;
+    text-align: center;
+  }
+  .nav.active .nav__list:last-child {
+    width: fit-content;
+    gap: 20px;
+    margin: 0 auto;
+  }
 }
 
 .nav__item {
@@ -163,6 +209,49 @@ a {
   text-align: center;
   font-size: 1.5rem;
   color: #424242;
+}
+
+.menu-btn {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  display: none;
+}
+@media screen and (max-width: 1024px) {
+  .menu-btn {
+    display: block;
+  }
+}
+.menu-btn span {
+  display: block;
+  width: 32px;
+  border-radius: 3px;
+  background: #a193f2;
+  height: 6px;
+  position: relative;
+}
+.menu-btn span::before {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 32px;
+  border-radius: 3px;
+  background: #a193f2;
+  height: 6px;
+  top: -12px;
+  left: 0;
+}
+.menu-btn span::after {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 32px;
+  border-radius: 3px;
+  background: #a193f2;
+  height: 6px;
+  bottom: -12px;
+  left: 0;
 }
 
 /*# sourceMappingURL=main.css.map */

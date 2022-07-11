@@ -8,6 +8,11 @@
   padding: 0 30px;
   position: relative;
 }
+@media screen and (max-width: 1024px) {
+  .log-reg__form {
+    padding: 0 10px;
+  }
+}
 
 .log-reg__title {
   font-size: 2.5rem;

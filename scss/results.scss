@@ -6,6 +6,10 @@
         margin-bottom: 30px;
         align-items: center;
         justify-content: space-between;
+
+        @media screen and (max-width: 768px) {
+            display: block;
+        }
     }
 }
 
@@ -64,6 +68,15 @@
 .results__link {
     font-size: 1.6rem;
     color: #424242;
+    line-height: 1.2;
+
+    a {
+        font-size: 1.3rem;
+    }
+
+    @media screen and (max-width: 768px) {
+        margin-bottom: 15px;
+    }
 }
 
 .results__caption {
