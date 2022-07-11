@@ -15,8 +15,6 @@ const loginGET = (req, res) => {
 const loginPOST = (req, res) => {
     const { email, password } = req.body
 
-    console.log(email, password)
-
     if (!email || !password) {
         res.status(400)
         res.render('login', {

@@ -45,7 +45,7 @@ const newTestSuccess = (req, res) => {
         scripts: [],
         authorization: req.user ? true : false,
         pageName: 'Survey created',
-        testLink: `http://localhost:3000/test/${testId}`,
+        testLink: `/test/${testId}`,
         styles: ['newTest.css'],
     })
 }

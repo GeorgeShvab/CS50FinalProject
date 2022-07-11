@@ -29,7 +29,7 @@ const resultsGET = (req, res) => {
                                 authorization: req.user ? true : false,
                                 pageName: 'Answers',
                                 styles: ['results.css'],
-                                testLink: `http://localhost:3000/test/${testId}`,
+                                testLink: `/test/${testId}`,
                             })
                         }
                     })
