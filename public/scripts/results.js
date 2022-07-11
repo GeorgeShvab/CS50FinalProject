@@ -9,11 +9,11 @@ window.addEventListener('DOMContentLoaded', () => {
                 if (res.status == 200) {
                     window.location = 'http://localhost:3000/account'
                 } else {
-                    alert('Помилка')
+                    alert('Error')
                 }
             })
         } catch (e) {
-            alert('Помилка')
+            alert('Error')
         }
     })
 })

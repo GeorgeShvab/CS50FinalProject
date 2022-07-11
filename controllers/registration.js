@@ -5,7 +5,7 @@ const registrationGET = (req, res) => {
     res.render('registration', {
         scripts: ['registration.js', 'md5.min.js'],
         authorization: req.user ? true : false,
-        pageName: 'Реєстрація',
+        pageName: 'Sign Up',
         styles: ['log-reg.css'],
     })
 }
@@ -16,28 +16,28 @@ const registrationPOST = (req, res) => {
     if (!name || !email || !password || !passwordConfirmation) {
         res.status(400)
         res.render('registration', {
-            error: 'Заповніть всі поля',
+            error: 'Fill all fields',
             scripts: ['registration.js', 'md5.min.js'],
             authorization: req.user ? true : false,
-            pageName: 'Реєстрація',
+            pageName: 'Sign Up',
             styles: ['log-reg.css'],
         })
     } else if (password != passwordConfirmation) {
         res.status(400)
         res.render('registration', {
-            error: 'Паролі не збігаються',
+            error: 'The passwords are not the same',
             scripts: ['registration.js', 'md5.min.js'],
             authorization: req.user ? true : false,
-            pageName: 'Реєстрація',
+            pageName: 'Sign Up',
             styles: ['log-reg.css'],
         })
     } else if (password.length < 6) {
         res.status(400)
         res.render('registration', {
-            error: 'Пароль повинен містити не менше 6 символів',
+            error: 'Password must has at least 6 symbols',
             scripts: ['registration.js', 'md5.min.js'],
             authorization: req.user ? true : false,
-            pageName: 'Реєстрація',
+            pageName: 'Sign Up',
             styles: ['log-reg.css'],
         })
     } else {
@@ -45,18 +45,18 @@ const registrationPOST = (req, res) => {
             if (err) {
                 res.status(500)
                 res.render('registration', {
-                    error: 'Помилка серверу, будь ласка, спробуйте пізніше',
+                    error: 'Server error. Please, try again later',
                     scripts: ['registration.js', 'md5.min.js'],
                     authorization: req.user ? true : false,
-                    pageName: 'Реєстрація',
+                    pageName: 'Sign Up',
                     styles: ['log-reg.css'],
                 })
             } else if (result) {
                 res.render('registration', {
-                    error: 'Користувач з таким емейлом вже існує',
+                    error: 'This email has already registered',
                     scripts: ['registration.js', 'md5.min.js'],
                     authorization: req.user ? true : false,
-                    pageName: 'Реєстрація',
+                    pageName: 'Sign Up',
                     styles: ['log-reg.css'],
                 })
             } else {
@@ -71,10 +71,10 @@ const registrationPOST = (req, res) => {
                         if (err) {
                             res.status(500)
                             res.render('registration', {
-                                error: 'Помилка серверу, будь ласка, спробуйте пізніше',
+                                error: 'Server error. Please, try again later',
                                 scripts: ['registration.js', 'md5.min.js'],
                                 authorization: req.user ? true : false,
-                                pageName: 'Реєстрація',
+                                pageName: 'Sign Up',
                                 styles: ['log-reg.css'],
                             })
                         } else {

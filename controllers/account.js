@@ -8,20 +8,20 @@ const accountGET = (req, res) => {
 
         findById(userId, (err, result) => {
             if (err) {
-                errorPage(req, res, 'Помилка на сервері', 500)
+                errorPage(req, res, 'Server error', 500)
             } else if (!result) {
                 res.redirect('/login')
             } else {
                 getTestsByUserId(userId, (err, result2) => {
                     if (err) {
-                        errorPage(req, res, 'Помилка на сервері', 500)
+                        errorPage(req, res, 'Server error', 500)
                     } else {
                         res.render('account', {
                             userName: result.name,
                             scripts: [],
                             data: result2,
                             authorization: req.user ? true : false,
-                            pageName: 'Профіль',
+                            pageName: 'Account',
                             styles: ['account.css'],
                         })
                     }

@@ -6,7 +6,7 @@ const newTestGET = (req, res) => {
         res.render('newTest', {
             scripts: ['newTest.js'],
             authorization: req.user ? true : false,
-            pageName: 'Новий тест',
+            pageName: 'New survey',
             styles: ['newTest.css'],
         })
     } else {
@@ -16,7 +16,7 @@ const newTestGET = (req, res) => {
 
 const newTestPOST = (req, res) => {
     if (req.user) {
-        const title = req.body.testTitle || 'Новий тест'
+        const title = req.body.testTitle || 'New survey'
         const authorId = req.user.id
         let elements = []
 
@@ -28,7 +28,7 @@ const newTestPOST = (req, res) => {
 
         insertTest({ title, authorId, elements }, (err, result) => {
             if (err) {
-                errorPage(req, res, 'Помилка на сервері', 500)
+                errorPage(req, res, 'Server Error', 500)
             } else {
                 res.redirect(`/test/${result._id}/success`)
             }
@@ -44,7 +44,7 @@ const newTestSuccess = (req, res) => {
     res.render('newTestSuccess', {
         scripts: [],
         authorization: req.user ? true : false,
-        pageName: 'Тест створено',
+        pageName: 'Survey created',
         testLink: `http://localhost:3000/test/${testId}`,
         styles: ['newTest.css'],
     })

@@ -19,7 +19,7 @@
     </h1>
     {{#if (arrayLength data)}}
       <p class="account__tests-caption">
-        Тести які ви створили:
+        Surveys that you created:
       </p>
       <div class="account__tests">
         {{#each data}}
@@ -29,9 +29,8 @@
                 {{this.title}}
               </h3>
               <p class="account__test-count">
-                Пройшли
                 {{this.answersCount}}
-                осіб
+                answer/s
               </p>
             </div>
           </a>
@@ -39,7 +38,7 @@
       </div>
     {{else}}
       <p class="account__tests-caption">
-        Ви не створили жодного тесту
+        You have not created any surveys yet
       </p>
     {{/if}}
   </div>

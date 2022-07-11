@@ -11,14 +11,14 @@ const resultsGET = (req, res) => {
 
         getTest(testId, (err, result) => {
             if (err) {
-                errorPage(req, res, 'Помилка на сервері', 500)
+                errorPage(req, res, 'Server error', 500)
             } else if (!result) {
-                errorPage(req, res, 'Тест не знайдено', 404)
+                errorPage(req, res, 'Survey Not Found', 404)
             } else {
                 if (result.author_id == userId) {
                     getTestAnswers(ObjectId(testId), (err, result) => {
                         if (err) {
-                            errorPage(req, res, 'Помилка на сервері', 500)
+                            errorPage(req, res, 'Server Error', 500)
                         } else {
                             res.render('results', {
                                 scripts: ['results.js'],
@@ -27,7 +27,7 @@ const resultsGET = (req, res) => {
                                 answersCount: result.test.answersCount,
                                 title: result.test.title,
                                 authorization: req.user ? true : false,
-                                pageName: 'Результати тесту',
+                                pageName: 'Answers',
                                 styles: ['results.css'],
                                 testLink: `http://localhost:3000/test/${testId}`,
                             })

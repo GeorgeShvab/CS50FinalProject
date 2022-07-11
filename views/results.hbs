@@ -5,23 +5,23 @@
     </h1>
     <div class="flex-container">
       <p class="results__link">
-        Посилання на тест
+        Link to survey
         <a href={{testLink}}>
           {{testLink}}
         </a>
       </p>
       <button type="button" class="results__delete">
-        Видалити тест
+        Delete test
       </button>
     </div>
     {{#if answersCount}}
       {{#each answers}}
         <p class="results__caption">
-          Відповідні на тест:
+          Answers:
         </p>
         <div class="results__item">
           <h3 class="results__item-number">
-            Відповідь
+            Answer №
             {{addOne @index}}
           </h3>
           {{#each (returnAnswers this)}}
@@ -43,7 +43,7 @@
       {{/each}}
     {{else}}
       <p class="results__message">
-        Ніхто ще не пройшов цей тест
+        No answers for this survey
       </p>
     {{/if}}
   </div>

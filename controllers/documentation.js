@@ -2,7 +2,7 @@ const documentationGET = (req, res) => {
     res.render('documentation', {
         scripts: [],
         authorization: req.user ? true : false,
-        pageName: 'Документація',
+        pageName: 'Documentation',
         styles: ['documentation.css'],
     })
 }

@@ -7,7 +7,7 @@ const loginGET = (req, res) => {
     res.render('login', {
         scripts: ['login.js', 'md5.min.js'],
         authorization: req.user ? true : false,
-        pageName: 'Вхід',
+        pageName: 'Sign In',
         styles: ['log-reg.css'],
     })
 }
@@ -21,9 +21,9 @@ const loginPOST = (req, res) => {
         res.status(400)
         res.render('login', {
             scripts: ['login.js', 'md5.min.js'],
-            error: 'Заповніть всі поля',
+            error: 'Fill all fields',
             authorization: req.user ? true : false,
-            pageName: 'Вхід',
+            pageName: 'Sign In',
             styles: ['log-reg.css'],
         })
     } else {
@@ -34,17 +34,17 @@ const loginPOST = (req, res) => {
                     res.status(500)
                     res.render('login', {
                         scripts: ['login.js', 'md5.min.js'],
-                        error: 'Помилка серверу, спробуйте будь ласка пізніше',
+                        error: 'Server Error. Please try again later',
                         authorization: req.user ? true : false,
-                        pageName: 'Вхід',
+                        pageName: 'Sign In',
                         styles: ['log-reg.css'],
                     })
                 } else if (!result) {
                     res.render('login', {
                         scripts: ['login.js', 'md5.min.js'],
-                        error: 'Неправильний емейл або пароль',
+                        error: 'Incorrect email or password',
                         authorization: req.user ? true : false,
-                        pageName: 'Вхід',
+                        pageName: 'Sign In',
                         styles: ['log-reg.css'],
                     })
                 } else if (result.passwordHash == password) {
@@ -64,9 +64,9 @@ const loginPOST = (req, res) => {
                                 res.status(500)
                                 res.render('login', {
                                     scripts: ['login.js', 'md5.min.js'],
-                                    error: 'Помилка серверу, спробуйте будь ласка пізніше',
+                                    error: 'Server Error. Please try again later',
                                     authorization: req.user ? true : false,
-                                    pageName: 'Вхід',
+                                    pageName: 'Sign In',
                                     styles: ['log-reg.css'],
                                 })
                             } else {
@@ -79,9 +79,9 @@ const loginPOST = (req, res) => {
                     res.status(500)
                     res.render('login', {
                         scripts: ['login.js', 'md5.min.js'],
-                        error: 'Помилка серверу, спробуйте будь ласка пізніше',
+                        error: 'Server Error. Please try again later',
                         authorization: req.user ? true : false,
-                        pageName: 'Вхід',
+                        pageName: 'Sign In',
                         styles: ['log-reg.css'],
                     })
                 }

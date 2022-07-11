@@ -3,7 +3,7 @@ const index = (req, res) => {
         authorization: req.user ? true : false,
         layout: 'main',
         scripts: [],
-        pageName: 'Головна',
+        pageName: 'Home',
         styles: ['index.css'],
     })
 }

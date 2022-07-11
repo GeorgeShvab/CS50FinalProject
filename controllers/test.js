@@ -16,13 +16,13 @@ const testGET = (req, res) => {
     }
 
     if (!testId || !mongoose.isValidObjectId(testId)) {
-        errorPage(req, res, 'Тест не знайдено', 404)
+        errorPage(req, res, 'Survey Not Found', 404)
     } else {
         getTest(new ObjectId(testId), (err, result) => {
             if (err) {
-                errorPage(req, res, 'Помилка на сервері', 500)
+                errorPage(req, res, 'Server Error', 500)
             } else if (!result) {
-                errorPage(req, res, 'Тест не знайдено', 404)
+                errorPage(req, res, 'Survey Not Found', 404)
             } else {
                 res.render('test', {
                     scripts: ['test.js'],
@@ -30,7 +30,7 @@ const testGET = (req, res) => {
                     title: result.title,
                     testId: testId,
                     authorization: req.user ? true : false,
-                    pageName: 'Тест',
+                    pageName: 'Survey',
                     styles: ['test.css'],
                 })
             }
@@ -46,7 +46,7 @@ const testPOST = (req, res) => {
 
     insertAnswer({ testId: testId, answers: answers }, (err, result) => {
         if (err) {
-            errorPage(req, res, 'Помилка на сервері', 500)
+            errorPage(req, res, 'Server Error', 500)
         } else {
             updateAnswerCount(testId)
             res.redirect('/')
@@ -64,7 +64,7 @@ const deleteTestAPIPOST = (req, res) => {
     }
 
     if (!testId || !mongoose.isValidObjectId(testId)) {
-        errorPage(req, res, 'Тест не знайдено', 404)
+        errorPage(req, res, 'Survey Not Found', 404)
     } else {
         getTest(new ObjectId(testId), (err, result) => {
             console.log(result)
