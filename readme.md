@@ -9,6 +9,10 @@ Firstly I need to say that my english if not perfect, so readme file and some co
 Also, firstly I did this website in Ukrainian, so some words i code can be not translated.<br/>
 <br/>
 
+Also, I deployed this app on heroku, you can find it here https://yumforcs50.herokuapp.com/
+
+<br/>
+
 ## **Why I choose to do survey project**
 
 I choose survey project because I wanted to do something that can be usefull.<br/>
