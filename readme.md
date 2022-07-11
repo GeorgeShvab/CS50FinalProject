@@ -9,7 +9,8 @@ Firstly I need to say that my english if not perfect, so readme file and some co
 Also, firstly I did this website in Ukrainian, so some words i code can be not translated.<br/>
 <br/>
 
-Also, I deployed this app on heroku, you can find it here https://yumforcs50.herokuapp.com/
+Also, I deployed this app on heroku, you can find it here https://yumforcs50.herokuapp.com/<br/>
+My video for CS50 on Youtube: https://youtu.be/xITAKt3yqD0<br>
 
 <br/>
 
