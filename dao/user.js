@@ -31,4 +31,18 @@ const findByPasswordAndEmail = ({ password, email }, done) => {
     }
 }
 
-module.exports = { findUserByEmail, registerUser, findByPasswordAndEmail }
+const findById = (userId, done) => {
+    try {
+        User.findOne({ _id: userId }).then((res) => done(null, res))
+    } catch (e) {
+        console.log(e)
+        done('Error')
+    }
+}
+
+module.exports = {
+    findUserByEmail,
+    registerUser,
+    findByPasswordAndEmail,
+    findById,
+}

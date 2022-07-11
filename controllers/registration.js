@@ -2,7 +2,12 @@ const User = require('../schemas/user')
 const { findUserByEmail, registerUser } = require('../dao/user')
 
 const registrationGET = (req, res) => {
-    res.render('registration')
+    res.render('registration', {
+        scripts: ['registration.js', 'md5.min.js'],
+        authorization: req.user ? true : false,
+        pageName: 'Реєстрація',
+        styles: ['log-reg.css'],
+    })
 }
 
 const registrationPOST = (req, res) => {
@@ -15,6 +20,7 @@ const registrationPOST = (req, res) => {
             scripts: ['registration.js', 'md5.min.js'],
             authorization: req.user ? true : false,
             pageName: 'Реєстрація',
+            styles: ['log-reg.css'],
         })
     } else if (password != passwordConfirmation) {
         res.status(400)
@@ -23,6 +29,7 @@ const registrationPOST = (req, res) => {
             scripts: ['registration.js', 'md5.min.js'],
             authorization: req.user ? true : false,
             pageName: 'Реєстрація',
+            styles: ['log-reg.css'],
         })
     } else if (password.length < 6) {
         res.status(400)
@@ -31,6 +38,7 @@ const registrationPOST = (req, res) => {
             scripts: ['registration.js', 'md5.min.js'],
             authorization: req.user ? true : false,
             pageName: 'Реєстрація',
+            styles: ['log-reg.css'],
         })
     } else {
         findUserByEmail(email, (err, result) => {
@@ -41,6 +49,7 @@ const registrationPOST = (req, res) => {
                     scripts: ['registration.js', 'md5.min.js'],
                     authorization: req.user ? true : false,
                     pageName: 'Реєстрація',
+                    styles: ['log-reg.css'],
                 })
             } else if (result) {
                 res.render('registration', {
@@ -48,6 +57,7 @@ const registrationPOST = (req, res) => {
                     scripts: ['registration.js', 'md5.min.js'],
                     authorization: req.user ? true : false,
                     pageName: 'Реєстрація',
+                    styles: ['log-reg.css'],
                 })
             } else {
                 registerUser(
@@ -65,6 +75,7 @@ const registrationPOST = (req, res) => {
                                 scripts: ['registration.js', 'md5.min.js'],
                                 authorization: req.user ? true : false,
                                 pageName: 'Реєстрація',
+                                styles: ['log-reg.css'],
                             })
                         } else {
                             res.redirect('/login')

@@ -1,4 +1,4 @@
-window.onload = () => {
+window.addEventListener('DOMContentLoaded', () => {
     const passwordInput = document.getElementById('password-input')
 
     const formEl = document.getElementsByClassName('log-reg__form')[0]
@@ -12,4 +12,4 @@ window.onload = () => {
 
         e.target.submit()
     })
-}
+})

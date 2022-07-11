@@ -1,9 +1,16 @@
 .results {
     padding: 100px 0;
+    position: relative;
+
+    .flex-container {
+        margin-bottom: 30px;
+        align-items: center;
+        justify-content: space-between;
+    }
 }
 
 .results__test-title {
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     font-size: 2rem;
     color: #424242;
     text-align: center;
@@ -39,10 +46,28 @@
     }
 }
 
-/*
-    {{#each (objEntries this)}}
-            {{#each this}}
-              {{this}}
-            {{/each}}
-          {{/each}}
-*/
+.results__message {
+    font-size: 1.6rem;
+    color: #424242;
+    text-align: center;
+}
+
+.results__delete {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
+    background-color: #f77f66;
+    color: #ffffff;
+}
+
+.results__link {
+    font-size: 1.6rem;
+    color: #424242;
+}
+
+.results__caption {
+    font-size: 1.6rem;
+    color: #424242;
+    margin-bottom: 20px;
+}

@@ -1,4 +1,4 @@
-window.onload = () => {
+window.addEventListener('DOMContentLoaded', () => {
     const formEl = document.getElementsByClassName('new-test__form')[0]
 
     const newQueBtn = document.getElementsByClassName('new-test__new-que')[0]
@@ -31,4 +31,4 @@ window.onload = () => {
     }
 
     setDeleteBtns()
-}
+})

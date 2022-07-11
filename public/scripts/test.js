@@ -1,4 +1,4 @@
-window.onload = () => {
+window.addEventListener('DOMContentLoaded', () => {
     const textareaEl = document.getElementsByClassName('test__que-textarea')
 
     Array.from(textareaEl).forEach((element) => {
@@ -6,4 +6,4 @@ window.onload = () => {
             e.target.style.height = e.target.scrollHeight + 'px'
         })
     })
-}
+})

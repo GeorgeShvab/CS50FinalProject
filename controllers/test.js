@@ -1,6 +1,12 @@
-const { getTest, insertAnswer, updateAnswerCount } = require('../dao/test')
+const {
+    getTest,
+    insertAnswer,
+    updateAnswerCount,
+    deleteTest,
+} = require('../dao/test')
 const { ObjectId } = require('mongodb')
 const mongoose = require('mongoose')
+const errorPage = require('./error')
 
 const testGET = (req, res) => {
     let testId = req.params.testId
@@ -10,16 +16,13 @@ const testGET = (req, res) => {
     }
 
     if (!testId || !mongoose.isValidObjectId(testId)) {
-        res.status(404)
-        res.send('Немає такого тесту')
+        errorPage(req, res, 'Тест не знайдено', 404)
     } else {
         getTest(new ObjectId(testId), (err, result) => {
             if (err) {
-                res.status(500)
-                res.send('Error')
+                errorPage(req, res, 'Помилка на сервері', 500)
             } else if (!result) {
-                res.status(404)
-                res.send('Не знайдено')
+                errorPage(req, res, 'Тест не знайдено', 404)
             } else {
                 res.render('test', {
                     scripts: ['test.js'],
@@ -28,6 +31,7 @@ const testGET = (req, res) => {
                     testId: testId,
                     authorization: req.user ? true : false,
                     pageName: 'Тест',
+                    styles: ['test.css'],
                 })
             }
         })
@@ -42,8 +46,7 @@ const testPOST = (req, res) => {
 
     insertAnswer({ testId: testId, answers: answers }, (err, result) => {
         if (err) {
-            res.status(500)
-            res.send('Error')
+            errorPage(req, res, 'Помилка на сервері', 500)
         } else {
             updateAnswerCount(testId)
             res.redirect('/')
@@ -51,4 +54,44 @@ const testPOST = (req, res) => {
     })
 }
 
-module.exports = { testGET, testPOST }
+const deleteTestAPIPOST = (req, res) => {
+    const testId = req.params.testId
+
+    const userId = req.user.id
+
+    if (!isNaN(testId)) {
+        testId = Number(testId)
+    }
+
+    if (!testId || !mongoose.isValidObjectId(testId)) {
+        errorPage(req, res, 'Тест не знайдено', 404)
+    } else {
+        getTest(new ObjectId(testId), (err, result) => {
+            console.log(result)
+            if (err) {
+                res.status(500)
+                res.send({ data: 'Error' })
+            } else if (!result) {
+                res.status(404)
+                res.send({ data: 'Error' })
+            } else {
+                if (result.author_id == userId) {
+                    deleteTest(testId, (err, result2) => {
+                        if (err) {
+                            res.status(500)
+                            res.send('Error')
+                        } else {
+                            res.status(200)
+                            res.send({ data: 'Deleted' })
+                        }
+                    })
+                } else {
+                    res.status(403)
+                    res.send({ data: 'Forbidden' })
+                }
+            }
+        })
+    }
+}
+
+module.exports = { testGET, testPOST, deleteTestAPIPOST }

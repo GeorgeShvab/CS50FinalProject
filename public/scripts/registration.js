@@ -1,4 +1,4 @@
-window.onload = () => {
+window.addEventListener('DOMContentLoaded', () => {
     const passwordInput = document.getElementById('password-input')
     const passwordConfiramtionInput = document.getElementById(
         'password-confirmation-input'
@@ -20,4 +20,4 @@ window.onload = () => {
 
         e.target.submit()
     })
-}
+})

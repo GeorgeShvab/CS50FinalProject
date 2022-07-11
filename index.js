@@ -74,3 +74,10 @@ hbs.handlebars.registerHelper('isQue', (value, index) => {
         return false
     }
 })
+
+hbs.handlebars.registerHelper('styleLink', (name) => {
+    return '/styles/' + name
+})
+hbs.handlebars.registerHelper('arrayLength', (arr) => {
+    return arr.length
+})

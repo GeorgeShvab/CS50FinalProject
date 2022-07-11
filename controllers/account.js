@@ -1,29 +1,35 @@
 const { getTestsByUserId } = require('../dao/test')
+const errorPage = require('./error')
+const { findById } = require('../dao/user')
 
 const accountGET = (req, res) => {
     if (req.user) {
         const userId = req.user.id
 
-        getTestsByUserId(userId, (err, result) => {
+        findById(userId, (err, result) => {
             if (err) {
-                res.render('account', {
-                    scripts: [],
-                    authorization: req.user ? true : false,
-                    error: true,
-                    pageName: 'Профіль',
-                })
+                errorPage(req, res, 'Помилка на сервері', 500)
+            } else if (!result) {
+                res.redirect('/login')
             } else {
-                res.render('account', {
-                    userName: result[0].user[0].name,
-                    scripts: [],
-                    data: result,
-                    authorization: req.user ? true : false,
-                    pageName: 'Профіль',
+                getTestsByUserId(userId, (err, result2) => {
+                    if (err) {
+                        errorPage(req, res, 'Помилка на сервері', 500)
+                    } else {
+                        res.render('account', {
+                            userName: result.name,
+                            scripts: [],
+                            data: result2,
+                            authorization: req.user ? true : false,
+                            pageName: 'Профіль',
+                            styles: ['account.css'],
+                        })
+                    }
                 })
             }
         })
     } else {
-        res.redirect('/')
+        res.redirect('/login')
     }
 }
 

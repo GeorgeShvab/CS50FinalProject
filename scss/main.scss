@@ -39,7 +39,8 @@ a {
     display: flex;
 
     &.authorized {
-        .account-btn {
+        .account-btn,
+        .account-leave {
             display: block;
             path {
                 transition: 0.25s fill;
@@ -101,7 +102,6 @@ a {
 }
 
 .registration-btn {
-    padding: 10px 0;
     text-align: center;
     width: 160px;
     border: 2px solid $blue;
@@ -110,18 +110,35 @@ a {
     margin-right: 30px;
     transition: 0.25s background-color, 0.25s border;
 
+    a {
+        display: block;
+        height: 38px;
+        line-height: 38px;
+    }
+
     &:hover {
         border: 2px solid $purpleOpacity;
         background-color: $purple;
 
         a {
             color: #ffffff;
+            display: block;
         }
     }
 }
 
+.account-leave {
+    margin-right: 20px;
+
+    button {
+        background: none;
+        border: none;
+        outline: none;
+        cursor: pointer;
+    }
+}
+
 .login-btn {
-    padding: 10px 0;
     text-align: center;
     width: 160px;
     border: 2px solid $blue;
@@ -132,6 +149,9 @@ a {
 
     a {
         color: #ffffff;
+        display: block;
+        height: 38px;
+        line-height: 38px;
     }
 
     &:hover {

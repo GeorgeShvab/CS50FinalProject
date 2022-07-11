@@ -35,13 +35,16 @@ a {
   padding: 15px 0;
   display: flex;
 }
-.header.authorized .account-btn {
+.header.authorized .account-btn,
+.header.authorized .account-leave {
   display: block;
 }
-.header.authorized .account-btn path {
+.header.authorized .account-btn path,
+.header.authorized .account-leave path {
   transition: 0.25s fill;
 }
-.header.authorized .account-btn:hover path:first-child {
+.header.authorized .account-btn:hover path:first-child,
+.header.authorized .account-leave:hover path:first-child {
   fill: #e17d9f;
 }
 .header.authorized .registration-btn,
@@ -89,7 +92,6 @@ a {
 }
 
 .registration-btn {
-  padding: 10px 0;
   text-align: center;
   width: 160px;
   border: 2px solid #a193f2;
@@ -98,16 +100,31 @@ a {
   margin-right: 30px;
   transition: 0.25s background-color, 0.25s border;
 }
+.registration-btn a {
+  display: block;
+  height: 38px;
+  line-height: 38px;
+}
 .registration-btn:hover {
   border: 2px solid rgba(225, 125, 159, 0);
   background-color: #e17d9f;
 }
 .registration-btn:hover a {
   color: #ffffff;
+  display: block;
+}
+
+.account-leave {
+  margin-right: 20px;
+}
+.account-leave button {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
 }
 
 .login-btn {
-  padding: 10px 0;
   text-align: center;
   width: 160px;
   border: 2px solid #a193f2;
@@ -118,6 +135,9 @@ a {
 }
 .login-btn a {
   color: #ffffff;
+  display: block;
+  height: 38px;
+  line-height: 38px;
 }
 .login-btn:hover {
   border: 2px solid #e17d9f;

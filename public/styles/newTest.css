@@ -104,4 +104,25 @@
   cursor: pointer;
 }
 
+.new-test__success-title {
+  font-size: 2rem;
+  color: #424242;
+  margin-bottom: 40px;
+}
+
+.new-test__success {
+  padding: 100px 0;
+}
+
+.new-test__success-href {
+  font-size: 1.6rem;
+  color: #424242;
+  margin-bottom: 20px;
+}
+
+.new-test__success-caption a {
+  font-size: 1.4rem;
+  color: #a193f2;
+}
+
 /*# sourceMappingURL=newTest.css.map */

@@ -75,10 +75,20 @@ const getTestsByUserId = (authorId, done) => {
     }
 }
 
+const deleteTest = (testId, done) => {
+    try {
+        Test.deleteOne({ _id: testId }).then((res) => done(null, res))
+    } catch (e) {
+        console.log(e)
+        done('Error')
+    }
+}
+
 module.exports = {
     insertTest,
     getTest,
     insertAnswer,
     updateAnswerCount,
     getTestsByUserId,
+    deleteTest,
 }

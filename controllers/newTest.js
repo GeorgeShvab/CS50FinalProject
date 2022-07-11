@@ -1,4 +1,5 @@
 const { insertTest } = require('../dao/test')
+const errorPage = require('./error')
 
 const newTestGET = (req, res) => {
     if (req.user) {
@@ -6,6 +7,7 @@ const newTestGET = (req, res) => {
             scripts: ['newTest.js'],
             authorization: req.user ? true : false,
             pageName: 'Новий тест',
+            styles: ['newTest.css'],
         })
     } else {
         res.redirect('/login')
@@ -26,9 +28,9 @@ const newTestPOST = (req, res) => {
 
         insertTest({ title, authorId, elements }, (err, result) => {
             if (err) {
-                res.send('Помилка')
+                errorPage(req, res, 'Помилка на сервері', 500)
             } else {
-                res.redirect('/account')
+                res.redirect(`/test/${result._id}/success`)
             }
         })
     } else {
@@ -36,4 +38,16 @@ const newTestPOST = (req, res) => {
     }
 }
 
-module.exports = { newTestGET, newTestPOST }
+const newTestSuccess = (req, res) => {
+    const testId = req.params.testId
+
+    res.render('newTestSuccess', {
+        scripts: [],
+        authorization: req.user ? true : false,
+        pageName: 'Тест створено',
+        testLink: `http://localhost:3000/test/${testId}`,
+        styles: ['newTest.css'],
+    })
+}
+
+module.exports = { newTestGET, newTestPOST, newTestSuccess }

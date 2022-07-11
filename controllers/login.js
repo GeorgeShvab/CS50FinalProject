@@ -8,11 +8,14 @@ const loginGET = (req, res) => {
         scripts: ['login.js', 'md5.min.js'],
         authorization: req.user ? true : false,
         pageName: 'Вхід',
+        styles: ['log-reg.css'],
     })
 }
 
 const loginPOST = (req, res) => {
     const { email, password } = req.body
+
+    console.log(email, password)
 
     if (!email || !password) {
         res.status(400)
@@ -21,6 +24,7 @@ const loginPOST = (req, res) => {
             error: 'Заповніть всі поля',
             authorization: req.user ? true : false,
             pageName: 'Вхід',
+            styles: ['log-reg.css'],
         })
     } else {
         findByPasswordAndEmail(
@@ -33,6 +37,7 @@ const loginPOST = (req, res) => {
                         error: 'Помилка серверу, спробуйте будь ласка пізніше',
                         authorization: req.user ? true : false,
                         pageName: 'Вхід',
+                        styles: ['log-reg.css'],
                     })
                 } else if (!result) {
                     res.render('login', {
@@ -40,11 +45,11 @@ const loginPOST = (req, res) => {
                         error: 'Неправильний емейл або пароль',
                         authorization: req.user ? true : false,
                         pageName: 'Вхід',
+                        styles: ['log-reg.css'],
                     })
                 } else if (result.passwordHash == password) {
                     let options = {
                         maxAge: 1000 * 60 * 60 * 24 * 7,
-                        httpOnly: true,
                     }
 
                     jwt.sign(
@@ -62,6 +67,7 @@ const loginPOST = (req, res) => {
                                     error: 'Помилка серверу, спробуйте будь ласка пізніше',
                                     authorization: req.user ? true : false,
                                     pageName: 'Вхід',
+                                    styles: ['log-reg.css'],
                                 })
                             } else {
                                 res.cookie('Authorization', token, options)
@@ -76,6 +82,7 @@ const loginPOST = (req, res) => {
                         error: 'Помилка серверу, спробуйте будь ласка пізніше',
                         authorization: req.user ? true : false,
                         pageName: 'Вхід',
+                        styles: ['log-reg.css'],
                     })
                 }
             }

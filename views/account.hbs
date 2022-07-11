@@ -17,24 +17,30 @@
     <h1 class="account__title">
       {{userName}}
     </h1>
-    <p class="account__tests-caption">
-      Тести які ви створили:
-    </p>
-    <div class="account__tests">
-      {{#each data}}
-        <a href="/test/{{this._id}}/results" class="account__test-link">
-          <div class="account__test">
-            <h3 class="account__test-title">
-              {{this.title}}
-            </h3>
-            <p class="account__test-count">
-              Пройшли
-              {{this.answersCount}}
-              осіб
-            </p>
-          </div>
-        </a>
-      {{/each}}
-    </div>
+    {{#if (arrayLength data)}}
+      <p class="account__tests-caption">
+        Тести які ви створили:
+      </p>
+      <div class="account__tests">
+        {{#each data}}
+          <a href="/test/{{this._id}}/results" class="account__test-link">
+            <div class="account__test">
+              <h3 class="account__test-title">
+                {{this.title}}
+              </h3>
+              <p class="account__test-count">
+                Пройшли
+                {{this.answersCount}}
+                осіб
+              </p>
+            </div>
+          </a>
+        {{/each}}
+      </div>
+    {{else}}
+      <p class="account__tests-caption">
+        Ви не створили жодного тесту
+      </p>
+    {{/if}}
   </div>
 </div>
